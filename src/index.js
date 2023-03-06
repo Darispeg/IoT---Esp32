@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require('cors');
 require("dotenv").config();
 
 const esp32Routes = require("./routes/esp32");
@@ -7,7 +8,8 @@ const esp32Routes = require("./routes/esp32");
 const app  = express();
 const port = process.env.PORT || 9000;
 
-// moddleware
+// middleware
+app.use(cors());
 app.use(express.json());
 app.use('/api', esp32Routes);
 
